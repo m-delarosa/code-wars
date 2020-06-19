@@ -1,0 +1,1 @@
+Hi, I use this repo to store all of my CodeWars coding challenges. They are organized first by language and then by Kata. Happy Coding!
