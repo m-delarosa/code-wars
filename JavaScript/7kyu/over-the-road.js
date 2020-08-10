@@ -16,8 +16,14 @@
 // overTheRoad(3, 5) = 8
 // Both n and address could get upto 500 billion with over 200 random tests.
 
+//My Solution
 function overTheRoad(address, n) {
     return address % 2 === 0
         ? (2 * n) - (address - 1)
         : (2 * n - address) + 1
+}
+
+//Best Solution
+function overTheRoad(address, n) {
+    return (n * 2 + 1) - address
 }
