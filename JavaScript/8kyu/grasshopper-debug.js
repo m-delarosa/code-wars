@@ -24,7 +24,6 @@ function convertToCelsius(temperature) {
 //My debug
 
 function weatherInfo(temp) {
-
     const c = convertToCelsius(temp)
     if (c <= 0)
         return (c + " is freezing temperature")
