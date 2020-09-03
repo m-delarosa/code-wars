@@ -28,6 +28,7 @@ const countSmileys = arr => {
     //increment count
 }
 
+//For loop solution
 const countSmileys = arr => {
     let count = 0
 
@@ -49,14 +50,20 @@ const countSmileys = arr => {
     for (let i = 0; i < arr.length; i++) {
         const face = arr[i]
         if (face.length == 2) {
-            if (eyes[face[0]] && mouths[face[1]]) count++
+            if (eyes[face[0]] && mouths[face[1]]) {
+                count++
+            }
         } else if (face.length == 3) {
-            if (eyes[face[0]] && noses[face[1]] && mouths[face[3]]) count++
+            if (eyes[face[0]] && noses[face[1]] && mouths[face[2]]) {
+                count++
+            }
         }
     }
+
     return count
 }
 
+//
 function countSmileys(arr) {
     const eyes = {
         ':': true,
