@@ -13,14 +13,23 @@
 const stones = "RRRRGGGGBBBB"
 
 function solve(stones) {
-    let counter = 0
-    let colors = { "R": 0, "G": 0, "B": 0 }
+    let count = 0
+    const stoneArr = stones.split("")
 
-    stones.split("").forEach(stone => colors[stone] += 1)
+    stoneArr.forEach((stone, i) => {
+        if (stone === stoneArr[i + 1]) count++
+    })
 
-    console.log(colors)
+    return count
+}
 
-    return counter
+//Without converting it to an array
+function solve(stones) {
+    let count = 0
+    for (let i = 1; i <= stones.length; i++) {
+        if (stones[i] === stones[i - 1]) { count++ }
+    }
+    return count
 }
 
 console.log("Function Returns", solve(stones))
