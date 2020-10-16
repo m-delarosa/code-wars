@@ -24,8 +24,12 @@ Identify the shortest string of the two and assign short and long variables to e
 
 const username = "MASH"
 const password = "M*A*S*H"
+
 const finalU = "aa*aa"
 const finalP = "aaaaaa"
+
+const noncap = "a"
+const cap = "A"
 
 function validate(username, password) {
     let short, long
@@ -52,14 +56,32 @@ function validate(username, password) {
     }
 
     for (let i = 0; i <= short.length - limit; i++) {
-        console.log("substring", short.substring(i, i + limit))
-        console.log("loop condition", long.includes(short.substring(i, i + limit)))
+        console.log("substring", short.substr(i, limit))
+        console.log("loop condition", long.includes(short.substr(i, limit)))
 
-        if (long.includes(short.substring(i, i + (limit - 1)))) return false
+        if (long.includes(short.substr(i, limit))) return false
     }
 
     return true
 }
 
-// console.log("Returns", validate(username, password))
-console.log("Returns", validate(finalU, finalP))
+//Answer
+const validate2 = (username, password) => {
+    // Does the same thing I do rounding up where there is a remainder to find half 
+    const half = Math.ceil(Math.min(username.length, password.length) / 2)
+    console.log("Half", half)
+    //Chooses to iterate over the password everytime for some reason
+    //I was choosing to iterate over the shorter one because I figured it would be more efficient.
+    //"MASH" "M*A*S*H" example loop
+    // 0 - substring(0, 2) => M*
+    // 1 - substring(1, 2) => *
+    for (let i = 0; i <= password.length - half; i++) {
+        console.log("substring", password.substr(i, half))
+        if (username.includes(password.substr(i, half))) return false
+    }
+    return true
+}
+
+console.log("Returns", validate(username, password))
+// console.log("Returns", validate2(noncap, cap))
+// console.log("Returns", validate2(username, password))
