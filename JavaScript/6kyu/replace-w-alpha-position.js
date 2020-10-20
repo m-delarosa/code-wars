@@ -17,11 +17,6 @@
     Iterate over the string or turn it into an array
 */
 
-const alphaMap = {
-    'a': 1,
-    'b': 2,
-    'c': 3
-}
 
 const text = "The sunset sets at twelve o' clock."
 
@@ -29,11 +24,41 @@ function alphabetPosition(text) {
     const lowerCaseText = text.toLowerCase().split('')
     const result = []
     // console.log("lowerCaseText", lowerCaseText)
+    // console.log("a".charCodeAt())
 
-    lowerCaseText.filter()
+    lowerCaseText.forEach(letter => {
+        // console.log(/[a-z]/.test(letter))
+        if (/[a-z]/.test(letter)) {
+            result.push(letter.charCodeAt() - 96)
+        }
+    })
 
 
-    return text
+    return result.join(' ')
 }
 
-console.log("Returns", alphabetPosition(text))
+//My first solution without console logs
+function alphabetPosition1(text) {
+    const lowerCaseText = text.toLowerCase().split('')
+    const result = []
+
+    lowerCaseText.forEach(letter => {
+        if (/[a-z]/.test(letter)) {
+            result.push(letter.charCodeAt() - 96)
+        }
+    })
+
+    return result.join(' ')
+}
+
+//Code Golf Attempt
+const alphabetPositionCG = text =>
+    text.toLowerCase()
+        .split('')
+        .filter(l => /[a-z]/.test(l))
+        .map(l => l.charCodeAt() - 96)
+        .join(' ')
+
+
+console.log("Returns", alphabetPositionCG(text))
+console.assert(alphabetPositionCG(text) === "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11")
