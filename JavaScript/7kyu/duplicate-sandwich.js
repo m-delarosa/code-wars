@@ -24,7 +24,7 @@ Slice away from that index on in the subarray
 Return the result array
 */
 
-const a = [0, 1, 2, 3, 4, 5, 6, 1, 7, 8]
+const a = "example"
 
 function duplicateSandwich(a) {
     let valueMap = {}
@@ -56,8 +56,6 @@ function duplicateSandwich(a) {
     const firstDupIndex = inputArr.findIndex(el => el === duplicate)
     console.log("first duplicate is located at", firstDupIndex)
 
-
-
     result = inputArr.slice(firstDupIndex + 1)
 
     const secondDupIndex = result.findIndex(el => el === duplicate)
@@ -70,8 +68,25 @@ function duplicateSandwich(a) {
     return result
 }
 
-console.log("Returns", duplicateSandwich(a))
+//Top Solution
+// variable duplicated =
+//  Iterate over a copy of the list and find an element where the index of the first occurance does not equal the index of the final occurence.
+//  This will find your duplicated value.
+//Returns 
+// The list sliced using the index of first dup + 1 as start and the indec of the last dup as an end point.
+
+const duplicateSandwich1 = (list) => {
+    let duplicated = [...list].find(a => list.indexOf(a) !== list.lastIndexOf(a))
+    return list.slice(list.indexOf(duplicated) + 1, list.lastIndexOf(duplicated))
+}
+
+// console.log("Returns", duplicateSandwich(a))
+console.log("Returns", duplicateSandwich1(a))
 
 /* Learns
 In order to use typeof in a conditional statement, you need to compare to a string as the result of typeof. See above.
+If you use the spread operator you can automatically convert a string into an array and not have to convert it back to a string at the end
+See final Solution
+There is a .lastIndexOf() array method to find final index of element's occurence.
 */
+
