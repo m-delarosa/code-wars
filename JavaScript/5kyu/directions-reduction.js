@@ -48,10 +48,45 @@ const oppositeMap = {
     "EAST": "WEST"
 }
 
+//For recursive for loop, 719ms
 function dirReduc(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i + 1] === oppositeMap[arr[i]]) {
+            arr.splice(i, 2)
+            dirReduc(arr)
+        }
+    }
 
+    return arr
 }
 
-console.assert(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]), ["WEST"])
-console.assert(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]), ["NORTH", "WEST", "SOUTH", "EAST"])
-console.assert(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]), [])
+//forEach refactor, 673ms
+const dirReduc2 = arr => {
+    arr.forEach((direction, i) => {
+        if (arr[i + 1] === oppositeMap[direction]) {
+            arr.splice(i, 2)
+            dirReduc(arr)
+        }
+    })
+
+    return arr
+}
+
+//reduce version, 733ms
+function dirReduc3(plan) {
+    const opposite = {
+        'NORTH': 'SOUTH', 'EAST': 'WEST', 'SOUTH': 'NORTH', 'WEST': 'EAST'
+    }
+
+    return plan.reduce((result, currentDirection) => {
+        if (result[result.length - 1] === opposite[currentDirection])
+            result.pop()
+        else
+            result.push(currentDirection)
+        return result
+    }, [])
+}
+
+console.log(dirReduc3(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]), ["WEST"])
+// console.assert(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]), ["NORTH", "WEST", "SOUTH", "EAST"])
+// console.assert(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]), [])
