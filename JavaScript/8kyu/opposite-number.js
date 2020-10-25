@@ -13,6 +13,4 @@ If number is positive return negative number
 If number is negative return positive number
 */
 
-function opposite(number) {
-    //your code here
-}
+const opposite = number => number * -1
