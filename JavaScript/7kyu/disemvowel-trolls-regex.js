@@ -18,7 +18,7 @@
     Return the array as a string
 */
 
-//Convert to array, filter based on inclusion
+//Convert to array, filter based on inclusion, 773ms
 function disemvowel(str) {
     const vowelsArr = ["a", "e", "i", "o", "u"]
     const strArr = str.split("")
@@ -26,5 +26,8 @@ function disemvowel(str) {
     return strArr.filter(char => !vowelsArr.includes(char.toLowerCase())).join("")
 }
 
-console.log(disemvowel("This website is for losers LOL!"),
+//Using Regex and Replace, 751ms
+const disemvowel2 = str => str.replace(/[aeiou]/ig, '')
+
+console.log(disemvowel2("This website is for losers LOL!"),
     "Ths wbst s fr lsrs LL!")
