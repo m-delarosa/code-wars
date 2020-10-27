@@ -10,3 +10,21 @@
 
 // Note: for this kata y isn't considered a vowel.
 
+/* Pseudo
+    Instantiate an array of lowercase vowel strings = vowelsArr
+    Instantiate an array of the strings characters = strArr
+
+    Iterate over the array, .filter any characters.downCase() that are .includes in vowelsArr
+    Return the array as a string
+*/
+
+//Convert to array, filter based on inclusion
+function disemvowel(str) {
+    const vowelsArr = ["a", "e", "i", "o", "u"]
+    const strArr = str.split("")
+
+    return strArr.filter(char => !vowelsArr.includes(char.toLowerCase())).join("")
+}
+
+console.log(disemvowel("This website is for losers LOL!"),
+    "Ths wbst s fr lsrs LL!")
