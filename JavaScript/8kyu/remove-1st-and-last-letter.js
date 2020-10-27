@@ -5,3 +5,17 @@
 // Pseudo => return str slice from 1 to the final character in string
 
 const removeChar = str => str.slice(1, str.length - 1)
+
+//Use negative index
+const removeChar = str => str.slice(1, -1)
+
+//Manipulate as an array
+function removeChar(str) {
+    str1 = str.split('')
+    str1.shift()
+    str1.pop()
+    return str1.join('')
+}
+
+// Return as a substr
+function removeChar(str) { return str.substr(1, str.length - 2) }
