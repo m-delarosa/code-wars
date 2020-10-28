@@ -9,3 +9,33 @@
 // basicOp('-', 15, 18)       // Output: -3
 // basicOp('*', 5, 5)         // Output: 25
 // basicOp('/', 49, 7)        // Output: 7
+
+//Not recommended for real application
+const basicOp = (operation, value1, value2) => eval(`${value1} ${operation} ${value2}`)
+
+//Best Practice
+function basicOp(operation, value1, value2) {
+    switch (operation) {
+        case '+':
+            return value1 + value2
+        case '-':
+            return value1 - value2
+        case '*':
+            return value1 * value2
+        case '/':
+            return value1 / value2
+        default:
+            return 0
+    }
+}
+
+//Or use object instead
+function basicOp(operation, value1, value2) {
+    var cases = {
+        '+': value1 + value2,
+        '-': value1 - value2,
+        '*': value1 * value2,
+        '/': value1 / value2
+    }
+    return cases[operation]
+}
