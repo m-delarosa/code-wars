@@ -14,3 +14,5 @@ Convert the integer into a string, and then into an array.
 return the sorted array joined into a string and then back into a number.
 */
 
+//First and best practices solution
+const descendingOrder = n => parseInt(n.toString().split("").sort((a, b) => b - a).join(""))
