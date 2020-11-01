@@ -17,3 +17,16 @@ Return Reduced array to sum,
 
 If result of reduce is > 9, run the function again.
 */
+
+//First Solution
+function digital_root(n) {
+    const numArray = n.toString().split('').map(str => parseInt(str))
+    const result = numArray.reduce((sum, num) => sum + num, 0)
+    return result > 9 ? digital_root(result) : result
+}
+
+//Best Practices and Most Clever
+//Purely mathematical solution
+function digital_root(n) {
+    return (n - 1) % 9 + 1
+}
