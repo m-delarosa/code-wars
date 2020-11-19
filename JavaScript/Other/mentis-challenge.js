@@ -17,7 +17,7 @@ const findCommonValues1 = (a, b) => {
 console.log(findCommonValues1([1, 2, 3, 4, 5, 6], [2, 4, 6, 8]))
 console.assert(findCommonValues1([1, 2, 3, 4, 5, 6], [2, 4, 6, 8]), [2, 4, 6])
 
-//Test arrays of different lengths when redudant values occur in both arrays (2)
+//Test arrays of different lengths when redundant values occur in both arrays (see value 2)
 console.log(findCommonValues1([1, 2, 3, 2, 4, 5, 6], [2, 4, 2, 6, 8]))
 console.assert(findCommonValues1([1, 2, 3, 2, 4, 5, 6], [2, 4, 2, 6, 8]), [2, 4, 6])
 
@@ -29,10 +29,10 @@ const findCommonValues2 = (a, b) => [...new Set(a)].filter(Set.prototype.has, ne
 
 //Tests for findCommonValues2
 
-//Tests arrays of different lengths and with solely unique values
+//Tests unique values and arrays of different length
 console.log(findCommonValues2([1, 2, 3, 4, 5, 6], [2, 4, 6, 8]))
 console.assert(findCommonValues2([1, 2, 3, 4, 5, 6], [2, 4, 6, 8]), [2, 4, 6])
 
-//Test arrays of different lengths when redudant values occur in both arrays (2)
+//Test arrays of different lengths when redundant values occur in both arrays (see value 2)
 console.log(findCommonValues2([1, 2, 3, 2, 4, 5, 6], [2, 4, 2, 6, 8]))
 console.assert(findCommonValues2([1, 2, 3, 2, 4, 5, 6], [2, 4, 2, 6, 8]), [2, 4, 6])
