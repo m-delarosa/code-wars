@@ -28,12 +28,20 @@ const negativeTestStr2 = "raceBar"
        compared as strings.
 */
 
+// const checkAnagrams = (str1, str2) => {
+//     if (str1.length !== str2.length) false
+//     const arr1 = str1.toLowerCase().split("").sort()
+//     const arr2 = str2.toLowerCase().split("").sort()
+
+//     return arr1.join("") === arr2.join("")
+// };
+
 const checkAnagrams = (str1, str2) => {
     if (str1.length !== str2.length) false
-    const arr1 = str1.toLowerCase().split("").sort()
-    const arr2 = str2.toLowerCase().split("").sort()
+    const sortedStr1 = str1.toLowerCase().sort()
+    const sortedStr2 = str2.toLowerCase().sort()
 
-    return arr1.join("") === arr2.join("")
+    return sortedStr1 === sortedStr2
 };
 
 //Tests
