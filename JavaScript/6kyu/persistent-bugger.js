@@ -27,3 +27,18 @@ function persistence(num) {
 
     return counter
 }
+
+//Best Practice
+function persistence(num) {
+    var times = 0;
+    
+    num = num.toString();
+    
+    while (num.length > 1) {
+        times++;
+        num = num.split('').map(Number).reduce((a, b) => a * b).toString();
+        //["x", "x", "x"].[x,x,x].(sum of multiplied function).("sum converted to string") <- So it can be used again as num in the while loop.
+    }
+    
+    return times;
+}
