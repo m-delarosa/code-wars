@@ -7,7 +7,29 @@ Examples
 pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 pigIt('Hello world !');     // elloHay orldway !
 
-Pseudo Code
+Input: String
+Output: String
 
+Pseudo Code
+  Split the input string into an array
+
+  Iterate over the array
+    Swap the first letter to the end of each string
+    Add "ay" to the string
+
+  Return the joined version of the modified array
 */
+
+//My Initial Solution
+function pigIt(str){
+  const originalArr = str.split(' ')
+  
+  const pigArr = originalArr.map(word => {
+    if (word === '!' || word === '?' ) return word
+    const removedChar = word[0]
+    return word.slice(1) + removedChar + 'ay'
+  })
+  
+  return pigArr.join(' ')
+}
 
