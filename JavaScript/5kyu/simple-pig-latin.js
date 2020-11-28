@@ -33,3 +33,16 @@ function pigIt(str){
   return pigArr.join(' ')
 }
 
+//Refactor
+function pigIt(str){
+  const originalArr = str.split(' ')
+  
+  const pigArr = originalArr.map(word => {
+    return word === '!' || word === '?'
+      ? word
+      : word.slice(1) + word[0] + 'ay'
+  })
+  
+  return pigArr.join(' ')
+}
+
