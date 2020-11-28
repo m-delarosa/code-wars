@@ -24,7 +24,7 @@ The first element 120 is the total weight of team 1, and the second element 140 
 function rowWeights(array){
     let result = [0,0]
     
-    array.forEach( (weight, index) => {
+    array.forEach((weight, index) => {
         index % 2 === 0
         ? result[0] += weight
         : result[1] += weight
