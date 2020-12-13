@@ -12,3 +12,32 @@
 // Returns 16 because there are two trips of 8 days, which add up to 16.
 
 // Happy coding and rank this kata if you wish ;-)
+
+const trips = [[2, 8], [6, 16], [17, 26]]
+
+function daysRepresented(trips) {
+  let days = 0
+
+  trips.forEach(pair => (
+    days += (pair[1] - pair[0] + 1)
+  ))
+
+  return days
+}
+
+function daysRepresentedFinal(trips) {
+  const set = new Set()
+  //instantiates an empty set {}
+
+  trips.map(([cv, index]) => {
+    for (let i = cv; i <= index; ++i) {
+      set.add(i)
+    }
+  })
+  //Iterates over every array pair. Adds all of the values in the range of the pair to the set and stops at the final value
+  //In this case we're using current value and index, as a sort of start and end for our iteration.
+  return set.size
+  //Simply returns the number of days in the set. The set here providing aboluste uniqueness.
+}
+
+console.log(daysRepresentedFinal(trips))
